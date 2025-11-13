@@ -137,11 +137,11 @@ const Contact = () => {
                     <div>
                       <h3 className="text-white font-semibold mb-1">Address</h3>
                       <p className="text-gray-400">
-                        Tech Campus, Innovation Block
+                        Gayatri Vidya Parishad College of Engineering
+                        (Autonomous)
                         <br />
-                        Bangalore, Karnataka - 560001
+                        Madhurawada, Visakhapatnam
                         <br />
-                        India
                       </p>
                     </div>
                   </div>
@@ -187,9 +187,8 @@ const Contact = () => {
                     <div>
                       <h3 className="text-white font-semibold mb-1">Email</h3>
                       <p className="text-gray-400">
-                        info@collegeeventexpo.com
+                        iete@gvpce.ac.in
                         <br />
-                        support@collegeeventexpo.com
                       </p>
                     </div>
                   </div>
