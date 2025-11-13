@@ -1,50 +1,12 @@
 import PageLayout from "../components/PageLayout";
 import {
-  HiUserGroup,
-  HiBriefcase,
-  HiCommandLine,
-  HiCog,
-  HiPaintBrush,
-  HiAcademicCap,
-  HiTicket,
-  HiBolt,
-  HiComputerDesktop,
-  HiCake,
-  HiBookOpen,
-  HiSparkles,
-  HiTrophy,
-  HiGift,
-  HiRocketLaunch,
   HiFire,
   HiHandRaised,
   HiLightBulb,
+  HiRocketLaunch,
 } from "react-icons/hi2";
 
 const About = () => {
-  const team = [
-    {
-      name: "Dr. Rajesh Kumar",
-      role: "Faculty Coordinator",
-      icon: HiAcademicCap,
-    },
-    { name: "Priya Sharma", role: "Student President", icon: HiBriefcase },
-    { name: "Arjun Patel", role: "Tech Lead", icon: HiCommandLine },
-    { name: "Sneha Reddy", role: "Event Manager", icon: HiBriefcase },
-    { name: "Vikram Singh", role: "Design Head", icon: HiPaintBrush },
-    { name: "Ananya Das", role: "Marketing Head", icon: HiUserGroup },
-  ];
-
-  const timeline = [
-    { time: "09:00 AM", event: "Registration & Inauguration", icon: HiTicket },
-    { time: "10:00 AM", event: "Technical Events Begin", icon: HiBolt },
-    { time: "12:00 PM", event: "Hackathon Kickoff", icon: HiComputerDesktop },
-    { time: "01:00 PM", event: "Lunch Break", icon: HiCake },
-    { time: "02:00 PM", event: "Workshops & Seminars", icon: HiBookOpen },
-    { time: "05:00 PM", event: "Cultural Events", icon: HiSparkles },
-    { time: "07:00 PM", event: "Prize Distribution", icon: HiTrophy },
-    { time: "08:00 PM", event: "Closing Ceremony", icon: HiGift },
-  ];
-
   return (
     <PageLayout>
       <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
@@ -131,80 +93,6 @@ const About = () => {
                   </div>
                 );
               })}
-            </div>
-          </div>
-
-          {/* Organizing Team */}
-          <div className="mb-20">
-            <h2 className="text-4xl font-bold text-center mb-12">
-              <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Meet Our Team
-              </span>
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {team.map((member, index) => {
-                const IconComponent = member.icon;
-                return (
-                  <div
-                    key={index}
-                    className="group bg-gradient-to-br from-gray-900 to-black border border-purple-500/20 rounded-xl p-6 text-center hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2"
-                  >
-                    <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="text-5xl text-purple-500" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-purple-500 font-semibold">
-                      {member.role}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Event Timeline */}
-          <div>
-            <h2 className="text-4xl font-bold text-center mb-12">
-              <span className="bg-gradient-to-r from-cyan-500 to-purple-500 bg-clip-text text-transparent">
-                Event Day Timeline
-              </span>
-            </h2>
-            <div className="max-w-4xl mx-auto">
-              <div className="relative">
-                {/* Timeline Line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 via-purple-500 to-pink-500"></div>
-
-                {/* Timeline Items */}
-                <div className="space-y-8">
-                  {timeline.map((item, index) => {
-                    const IconComponent = item.icon;
-                    return (
-                      <div
-                        key={index}
-                        className="relative flex items-center gap-6"
-                      >
-                        {/* Icon */}
-                        <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border-2 border-cyan-500 rounded-full flex items-center justify-center z-10 flex-shrink-0">
-                          <IconComponent className="text-2xl text-cyan-500" />
-                        </div>
-                        {/* Content */}
-                        <div className="flex-1 bg-gradient-to-r from-gray-900 to-black border border-cyan-500/20 rounded-lg p-4 hover:border-cyan-500/50 transition-all duration-300">
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                            <h3 className="text-lg font-bold text-white mb-1 sm:mb-0">
-                              {item.event}
-                            </h3>
-                            <span className="text-cyan-500 font-semibold">
-                              {item.time}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
             </div>
           </div>
         </div>

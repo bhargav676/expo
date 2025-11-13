@@ -33,7 +33,7 @@ const EventCard = ({ title, description, icon: Icon, category }) => {
 
         {/* Button */}
         <button className="w-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 hover:from-cyan-500/20 hover:to-purple-500/20 text-cyan-500 font-semibold py-3 px-6 rounded-lg border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50">
-          Know More →
+          Register Now →
         </button>
       </div>
     </div>
