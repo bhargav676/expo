@@ -1,6 +1,13 @@
 import PageLayout from "../components/PageLayout";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import {
+  HiRocketLaunch,
+  HiLightBulb,
+  HiTrophy,
+  HiUsers,
+  HiChevronDown,
+} from "react-icons/hi2";
 
 const Home = () => {
   return (
@@ -20,9 +27,10 @@ const Home = () => {
         {/* Hero Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 mb-8 bg-cyan-500/10 border border-cyan-500/30 rounded-full animate-bounce">
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-cyan-500/10 border border-cyan-500/30 rounded-full animate-bounce">
+            <HiRocketLaunch className="text-cyan-500 text-lg" />
             <span className="text-cyan-500 font-semibold text-sm">
-              🚀 Registration Open Now
+              Registration Open Now
             </span>
           </div>
 
@@ -52,9 +60,9 @@ const Home = () => {
             <Link to="/events">
               <Button
                 variant="primary"
-                className="w-full sm:w-auto px-8 py-4 text-lg"
+                className="w-full sm:w-auto px-8 py-4 text-lg flex items-center gap-2"
               >
-                Register Now 🎯
+                Register Now <HiRocketLaunch className="text-xl" />
               </Button>
             </Link>
             <Link to="/events">
@@ -66,49 +74,11 @@ const Home = () => {
               </Button>
             </Link>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-purple-500 bg-clip-text text-transparent">
-                50+
-              </div>
-              <div className="text-gray-400 mt-2">Events</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                1000+
-              </div>
-              <div className="text-gray-400 mt-2">Participants</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-cyan-500 bg-clip-text text-transparent">
-                ₹5L+
-              </div>
-              <div className="text-gray-400 mt-2">Prize Pool</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-purple-500 bg-clip-text text-transparent">
-                3 Days
-              </div>
-              <div className="text-gray-400 mt-2">Duration</div>
-            </div>
-          </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg
-            className="w-6 h-6 text-cyan-500"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
+          <HiChevronDown className="w-8 h-8 text-cyan-500" />
         </div>
       </div>
 
@@ -123,35 +93,38 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: "💡",
+                icon: HiLightBulb,
                 title: "Innovation",
                 description:
                   "Showcase your innovative ideas and groundbreaking projects to industry experts.",
               },
               {
-                icon: "🏆",
+                icon: HiTrophy,
                 title: "Compete & Win",
                 description:
                   "Participate in exciting competitions and win amazing prizes worth lakhs.",
               },
               {
-                icon: "🤝",
+                icon: HiUsers,
                 title: "Network",
                 description:
                   "Connect with like-minded individuals, mentors, and potential collaborators.",
               },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-gray-900 to-black border border-cyan-500/20 rounded-xl p-8 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20"
-              >
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400">{feature.description}</p>
-              </div>
-            ))}
+            ].map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-gray-900 to-black border border-cyan-500/20 rounded-xl p-8 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20"
+                >
+                  <IconComponent className="text-6xl text-cyan-500 mb-4" />
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-400">{feature.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

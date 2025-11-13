@@ -1,5 +1,17 @@
 import PageLayout from "../components/PageLayout";
 import Button from "../components/Button";
+import {
+  HiUser,
+  HiPencil,
+  HiCog,
+  HiTrophy,
+  HiStar,
+  HiFire,
+  HiTicket,
+  HiCreditCard,
+  HiDocumentText,
+  HiPhone,
+} from "react-icons/hi2";
 
 const Profile = () => {
   const registrations = [
@@ -26,8 +38,8 @@ const Profile = () => {
             <div className="lg:col-span-1">
               <div className="bg-gradient-to-br from-gray-900 to-black border border-cyan-500/30 rounded-2xl p-8 sticky top-24">
                 {/* Profile Image */}
-                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-full flex items-center justify-center text-6xl">
-                  👨‍🎓
+                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-full flex items-center justify-center">
+                  <HiUser className="text-7xl text-white" />
                 </div>
 
                 {/* User Info */}
@@ -56,10 +68,14 @@ const Profile = () => {
                 {/* Action Buttons */}
                 <div className="space-y-3">
                   <Button variant="primary" className="w-full">
-                    Edit Profile ✏️
+                    <span className="flex items-center justify-center gap-2">
+                      Edit Profile <HiPencil />
+                    </span>
                   </Button>
                   <Button variant="outline" className="w-full">
-                    Settings ⚙️
+                    <span className="flex items-center justify-center gap-2">
+                      Settings <HiCog />
+                    </span>
                   </Button>
                 </div>
 
@@ -158,21 +174,24 @@ const Profile = () => {
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {[
-                    { icon: "🏆", name: "Winner", color: "yellow" },
-                    { icon: "⭐", name: "Top Performer", color: "cyan" },
-                    { icon: "🎯", name: "Early Bird", color: "purple" },
-                    { icon: "🔥", name: "Active", color: "pink" },
-                  ].map((badge, index) => (
-                    <div
-                      key={index}
-                      className="bg-gradient-to-br from-gray-800 to-black border border-cyan-500/20 rounded-lg p-4 text-center hover:border-cyan-500/40 transition-all duration-300 hover:scale-105"
-                    >
-                      <div className="text-4xl mb-2">{badge.icon}</div>
-                      <p className="text-white text-sm font-semibold">
-                        {badge.name}
-                      </p>
-                    </div>
-                  ))}
+                    { icon: HiTrophy, name: "Winner", color: "yellow" },
+                    { icon: HiStar, name: "Top Performer", color: "cyan" },
+                    { icon: HiTicket, name: "Early Bird", color: "purple" },
+                    { icon: HiFire, name: "Active", color: "pink" },
+                  ].map((badge, index) => {
+                    const IconComponent = badge.icon;
+                    return (
+                      <div
+                        key={index}
+                        className="bg-gradient-to-br from-gray-800 to-black border border-cyan-500/20 rounded-lg p-4 text-center hover:border-cyan-500/40 transition-all duration-300 hover:scale-105"
+                      >
+                        <IconComponent className="text-4xl text-cyan-500 mb-2 mx-auto" />
+                        <p className="text-white text-sm font-semibold">
+                          {badge.name}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -184,8 +203,8 @@ const Profile = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <button className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-lg p-4 text-left hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center text-2xl">
-                        🎫
+                      <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+                        <HiTicket className="text-2xl text-cyan-500" />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold">
@@ -199,8 +218,8 @@ const Profile = () => {
                   </button>
                   <button className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-lg p-4 text-left hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center text-2xl">
-                        💳
+                      <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                        <HiCreditCard className="text-2xl text-purple-500" />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold">
@@ -214,8 +233,8 @@ const Profile = () => {
                   </button>
                   <button className="bg-gradient-to-r from-pink-500/10 to-cyan-500/10 border border-pink-500/30 rounded-lg p-4 text-left hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center text-2xl">
-                        📄
+                      <div className="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center">
+                        <HiDocumentText className="text-2xl text-pink-500" />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold">
@@ -229,8 +248,8 @@ const Profile = () => {
                   </button>
                   <button className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-lg p-4 text-left hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center text-2xl">
-                        📞
+                      <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+                        <HiPhone className="text-2xl text-cyan-500" />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold">Support</h3>

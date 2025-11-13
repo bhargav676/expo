@@ -1,6 +1,12 @@
 import PageLayout from "../components/PageLayout";
 import Button from "../components/Button";
 import { useState } from "react";
+import {
+  HiEnvelope,
+  HiPhone,
+  HiMapPin,
+  HiPaperAirplane,
+} from "react-icons/hi2";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -98,7 +104,9 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 <Button type="submit" variant="primary" className="w-full">
-                  Send Message 📧
+                  <span className="flex items-center justify-center gap-2">
+                    Send Message <HiPaperAirplane className="text-xl" />
+                  </span>
                 </Button>
               </form>
             </div>

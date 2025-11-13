@@ -1,5 +1,13 @@
 import PageLayout from "../components/PageLayout";
 import EventCard from "../components/EventCard";
+import {
+  HiWrench,
+  HiDocumentText,
+  HiCog,
+  HiCommandLine,
+  HiPuzzlePiece,
+  HiSparkles,
+} from "react-icons/hi2";
 
 const Events = () => {
   const technicalEvents = [
@@ -7,21 +15,21 @@ const Events = () => {
       title: "Hardware Expo",
       description:
         "Showcase your innovative hardware projects and prototypes. Display cutting-edge IoT devices, robotics, and embedded systems.",
-      icon: "🔧",
+      icon: HiWrench,
       category: "Technical",
     },
     {
       title: "Paper Presentation",
       description:
         "Present your research papers and technical findings to a panel of expert judges. Share your innovative ideas with the tech community.",
-      icon: "📄",
+      icon: HiDocumentText,
       category: "Technical",
     },
     {
       title: "Robo Wars",
       description:
         "Battle it out with custom-built robots in this epic combat arena. Bring your strongest robot and compete for the championship.",
-      icon: "🤖",
+      icon: HiCog,
       category: "Technical",
     },
   ];
@@ -31,21 +39,21 @@ const Events = () => {
       title: "Digital Hackathon",
       description:
         "Code for 24 hours straight to build innovative solutions. Team up and solve real-world problems with cutting-edge technology.",
-      icon: "💻",
+      icon: HiCommandLine,
       category: "Non-Technical",
     },
     {
       title: "Fun Events",
       description:
         "Participate in exciting fun activities, games, and entertainment. Relax and enjoy with friends while taking a break from tech.",
-      icon: "🎮",
+      icon: HiPuzzlePiece,
       category: "Non-Technical",
     },
     {
       title: "Cultural Night",
       description:
         "Experience an evening of music, dance, and cultural performances. Showcase your talents or enjoy spectacular performances.",
-      icon: "🎭",
+      icon: HiSparkles,
       category: "Non-Technical",
     },
   ];
