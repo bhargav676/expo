@@ -1,4 +1,16 @@
-const EventCard = ({ title, description, icon: Icon, category }) => {
+const EventCard = ({
+  title,
+  description,
+  icon: Icon,
+  category,
+  registrationLink,
+}) => {
+  const handleRegister = () => {
+    if (registrationLink) {
+      window.open(registrationLink, "_blank");
+    }
+  };
+
   return (
     <div className="group relative bg-gradient-to-br from-gray-900 to-black border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20 hover:-translate-y-2">
       {/* Glow effect */}
@@ -32,7 +44,13 @@ const EventCard = ({ title, description, icon: Icon, category }) => {
         <p className="text-gray-400 text-sm mb-6 line-clamp-3">{description}</p>
 
         {/* Button */}
-        <button className="w-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 hover:from-cyan-500/20 hover:to-purple-500/20 text-cyan-500 font-semibold py-3 px-6 rounded-lg border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50">
+        <button
+          onClick={handleRegister}
+          disabled={!registrationLink}
+          className={`w-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 hover:from-cyan-500/20 hover:to-purple-500/20 text-cyan-500 font-semibold py-3 px-6 rounded-lg border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 ${
+            !registrationLink ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+        >
           Register Now →
         </button>
       </div>

@@ -1,6 +1,7 @@
 import PageLayout from "../components/PageLayout";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import {
   HiRocketLaunch,
   HiLightBulb,
@@ -10,15 +11,93 @@ import {
 } from "react-icons/hi2";
 
 const Home = () => {
+  // Floating particles effect
+  useEffect(() => {
+    const canvas = document.getElementById("particles-canvas");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    const particles = [];
+    // Reduce particle count on mobile
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 30 : 100;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3 + 1,
+        speedX: Math.random() * 1 - 0.5,
+        speedY: Math.random() * 1 - 0.5,
+        color: `hsla(${Math.random() * 60 + 180}, 100%, 70%, ${
+          isMobile ? Math.random() * 0.15 + 0.05 : Math.random() * 0.3 + 0.1
+        })`,
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle) => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+
+        if (particle.x > canvas.width) particle.x = 0;
+        if (particle.x < 0) particle.x = canvas.width;
+        if (particle.y > canvas.height) particle.y = 0;
+        if (particle.y < 0) particle.y = canvas.height;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = particle.color;
+        ctx.fill();
+
+        // Draw connections
+        particles.forEach((otherParticle) => {
+          const dx = particle.x - otherParticle.x;
+          const dy = particle.y - otherParticle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = particle.color
+              .replace("hsla", "hsla")
+              .replace(/,[^,]+\)$/, ",0.05)");
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(otherParticle.x, otherParticle.y);
+            ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    return () => {
+      // Clean up animation
+    };
+  }, []);
+
   return (
     <PageLayout>
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Animated Background Canvas */}
+        <canvas
+          id="particles-canvas"
+          className="absolute inset-0 w-full h-full pointer-events-none"
+        />
         {/* Animated Background Glow */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-cyan-500/20 md:bg-cyan-500/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-purple-500/20 md:bg-purple-500/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-pink-500/10 md:bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
         </div>
 
         {/* Grid Pattern Overlay */}

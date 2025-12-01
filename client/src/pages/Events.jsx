@@ -19,6 +19,7 @@ const Events = () => {
         "Showcase your innovative hardware projects and prototypes. Display cutting-edge IoT devices, robotics, and embedded systems.",
       icon: HiWrench,
       category: "Technical",
+      registrationLink: "",
     },
     {
       title: "Paper Presentation",
@@ -26,6 +27,7 @@ const Events = () => {
         "Present your research papers and technical findings to a panel of expert judges. Share your innovative ideas with the tech community.",
       icon: HiDocumentText,
       category: "Technical",
+      registrationLink: "",
     },
     {
       title: "Robo Wars",
@@ -33,6 +35,8 @@ const Events = () => {
         "Battle it out with custom-built robots in this epic combat arena. Bring your strongest robot and compete for the championship.",
       icon: HiCog,
       category: "Technical",
+      registrationLink:
+        "https://docs.google.com/forms/d/e/1FAIpQLSdQ_OvZJGGmvEfDbz93_VHCOqRPJvQQpGgTnP9swF1Y2DKMoA/viewform",
     },
   ];
 
@@ -43,6 +47,7 @@ const Events = () => {
         "Code for 24 hours straight to build innovative solutions. Team up and solve real-world problems with cutting-edge technology.",
       icon: HiCommandLine,
       category: "Non-Technical",
+      registrationLink: "",
     },
     {
       title: "Fun Events",
@@ -50,6 +55,8 @@ const Events = () => {
         "Participate in exciting fun activities, games, and entertainment. Relax and enjoy with friends while taking a break from tech.",
       icon: HiPuzzlePiece,
       category: "Non-Technical",
+      registrationLink:
+        "https://docs.google.com/forms/d/e/1FAIpQLSfmU92d5U3XOONUGpZuWB0Ml29Wr5zWh7aBhLH0GRB8Rrs7sA/viewform",
     },
     {
       title: "Cultural Night",
@@ -57,6 +64,7 @@ const Events = () => {
         "Experience an evening of music, dance, and cultural performances. Showcase your talents or enjoy spectacular performances.",
       icon: HiSparkles,
       category: "Non-Technical",
+      registrationLink: "",
     },
   ];
 
